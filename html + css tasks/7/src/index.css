@@ -1,0 +1,300 @@
+.sprites
+{
+    height: 0;
+    width: 0;
+}
+
+input
+{
+    display: none;
+}
+
+label > svg
+{
+
+    opacity: .8;
+}
+
+label:hover > svg
+{
+    opacity: 1;
+}
+
+.control
+{
+    margin: 0 auto;
+    height: 8vh;
+    width: 68vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon
+{
+    width: 7vh;
+    height: 7vh;
+}
+
+.icon-scale,
+.icon-rotate
+{
+    display: none;
+}
+
+.scale-1:checked ~ .control > .icon-scale[for='scale-10'],
+.scale-10:checked ~ .control > .icon-scale[for='scale-100'],
+.scale-100:checked ~ .control > .icon-scale[for='scale-200'],
+.scale-200:checked ~ .control > .icon-scale[for='scale-1']
+{
+    display: inline-block;
+}
+
+.rotate-0:checked ~ .control > .icon-rotate[for='rotate-90'],
+.rotate-90:checked ~ .control > .icon-rotate[for='rotate-180'],
+.rotate-180:checked ~ .control > .icon-rotate[for='rotate-270'],
+.rotate-270:checked ~ .control > .icon-rotate[for='rotate-0']
+{
+    display: inline-block;
+}
+
+.main_image
+{
+    margin: 0 auto;
+    height: 68vh;
+    width: 68vh;
+    overflow: hidden;
+    transition-duration: .5s;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.mutable_image
+{
+    transition-duration: .5s;
+}
+
+.cleanImage
+{
+    display: none;
+}
+
+.image-rotate,
+.image-flip,
+.image-scale
+{
+    width: 100%;
+    height: 100%;
+    transition-duration: .5s;
+}
+
+.image-scale
+{
+    overflow: hidden;
+}
+
+.fill:not(:checked) ~ .main_image img,
+.filters > div img
+{
+    position: relative;
+    height: 100%;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fill:checked ~ .main_image img
+{
+    width: 50%;
+    height: 50%;
+    margin: 100px auto auto 150px;
+}
+
+.scale-1:checked ~ .main_image .image-scale
+{
+    transform: scale(1);
+}
+
+.scale-10:checked ~ .main_image .image-scale
+{
+    transform: scale(1.01);
+}
+
+.scale-100:checked ~ .main_image .image-scale
+{
+    transform: scale(1.1);
+}
+
+.scale-200:checked ~ .main_image .image-scale
+{
+    transform: scale(1.2);
+}
+
+.logo:checked ~ .main_image > .image-rotate
+{
+    display: none;
+}
+
+.logo:checked ~ .main_image > .cleanImage
+{
+    display: block;
+}
+
+.rotate-90:checked ~ .main_image .image-rotate
+{
+    transform: rotate(90deg);
+}
+
+.rotate-180:checked ~ .main_image .image-rotate
+{
+    transform: rotate(180deg);
+}
+
+.rotate-270:checked ~ .main_image .image-rotate
+{
+    transform: rotate(270deg);
+}
+
+.flip:checked ~ .main_image .image-flip
+{
+    transform: scaleX(-1);
+}
+
+.filter-2:checked ~ .main_image .mutable_image
+{
+    filter: grayscale(20);
+}
+
+.filter-3:checked ~ .main_image .mutable_image
+{
+    filter: sepia(40);
+}
+
+.filter-4:checked ~ .main_image .mutable_image
+{
+    filter: hue-rotate(180deg);
+}
+
+.filter-5:checked ~ .main_image .mutable_image
+{
+    filter: saturate(200%);
+}
+.filter-6:checked ~ .main_image .mutable_image
+{
+    filter: sepia(12) invert(1);
+}
+
+.filters
+{
+    height: 22vh;
+    width: 94vh;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.filters > label[for^='arrow']
+{
+    display: none;
+    align-self: center;
+    margin: 0 1vh;
+}
+
+.arrow_left,
+.arrow_left_disable
+{
+    transform: rotate(90deg);
+}
+
+.arrow_right,
+.arrow_right_disable
+{
+    transform: rotate(-90deg);
+}
+
+.arrow_on:checked ~ .filters > label[for='arrow_off'].arrow_left_disable,
+.arrow_on:checked ~ .filters > label[for='arrow_off'].arrow_right_disable,
+.arrow_off:checked ~ .filters > label[for='arrow_on'].arrow_left,
+.arrow_off:checked ~ .filters > label[for='arrow_on'].arrow_right
+{
+    display: block;
+}
+
+label[for='arrow_off'].arrow_left_disable,
+label[for='arrow_on'].arrow_right
+{
+    pointer-events: none;
+}
+
+label[for='arrow_off'].arrow_left_disable > .icon,
+label[for='arrow_off'].arrow_left > .icon,
+label[for='arrow_off'].arrow_right > .icon,
+label[for='arrow_on'].arrow_right_disable > .icon
+{
+    opacity: 0.6;
+}
+
+.arrow_on:checked ~ .filters > .image_filter-5,
+.arrow_on:checked ~ .filters > .image_filter-6,
+.arrow_off:checked ~ .filters > .image_filter-1,
+.arrow_off:checked ~ .filters > .image_filter-2
+{
+    display: none;
+}
+
+.filters > div
+{
+    margin: 0;
+    width: 18vh;
+    flex-wrap: wrap;
+    text-align: center;
+    color: black;
+    padding-top: 1vh;
+}
+
+.filter-1:checked ~ .filters > .image_filter-1,
+.filter-2:checked ~ .filters > .image_filter-2,
+.filter-3:checked ~ .filters > .image_filter-3,
+.filter-4:checked ~ .filters > .image_filter-4,
+.filter-5:checked ~ .filters > .image_filter-5,
+.filter-6:checked ~ .filters > .image_filter-6
+{
+    font-weight: 600;
+}
+
+.filters > div div
+{
+    width: 18vh;
+    height: 18vh;
+    overflow: hidden;
+    margin-top: .5vh;
+}
+
+.image__filter-2
+{
+    filter: grayscale(20);
+}
+
+.image__filter-3
+{
+    filter: sepia(40);
+}
+
+.image__filter-4
+{
+    filter: hue-rotate(180deg);
+}
+
+.image__filter-5
+{
+    filter: saturate(200%);
+}
+
+.image__filter-6
+{
+    filter: sepia(50) invert(1);
+}

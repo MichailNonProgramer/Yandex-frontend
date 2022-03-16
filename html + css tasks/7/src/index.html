@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Задача «Котограм»</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<svg class="sprites">
+  <defs>
+    <linearGradient id="grad2" x1="101.5%" x2=".5%" y1="-.5%" y2="101.5%">
+      <stop offset="0%" stop-color="#8A2387"></stop>
+      <stop offset="64%" stop-color="#E94057"></stop>
+      <stop offset="100%" stop-color="#F27121"></stop>
+    </linearGradient>
+    <symbol id="icon-fill" viewBox=" 0 0 48 48">
+      <g>
+        <path d="M8.395 8.395h30.996v30.996H8.395z"/>
+        <path d="M35.946 0v5.166h6.888v6.673H48V0zM5.166 5.166h6.673V0H0v11.839h5.166zM42.834 42.834h-6.888V48H48V35.946h-5.166zM5.166 35.946H0V48h11.839v-5.166H5.166z"/>
+      </g>
+    </symbol>
+    <symbol id="icon-scale" viewBox="0 0 48 48">
+      <g>
+        <path d="M0 0v48h48V0H0zm6.4 6.4h33.682L6.4 40.227V6.4zm34.56 32.427H25.6v-6.4h15.36v6.4z" fill-rule="nonzero"/>
+        <path d="M24 13.071h-4.375v-4.5h-6.25v4.5H9V19.5h4.375V24h6.25v-4.5H24z"/>
+      </g>
+    </symbol>
+    <symbol id="icon-logo" viewBox=" 0 0 48 48">
+      <path d="M0 0v48h48V0H0zm24.107 16.782a7.12 7.12 0 0 1 7.11 7.111 7.12 7.12 0 0 1-7.11 7.111 7.12 7.12 0 0 1-7.111-7.11 7.12 7.12 0 0 1 7.11-7.112zM6.4 5.547h7.253v4.693H6.4V5.547zM41.6 41.6H6.4V24.747h4.225c.443 7.053 6.318 12.657 13.482 12.657 7.163 0 13.039-5.604 13.481-12.657H41.6V41.6z" fill-rule="evenodd" fill="url('#grad2')"/>
+    </symbol>
+    <symbol id="icon-rotate" viewBox=" 0 0 48 48">
+      <path d="M24 48c13.234 0 24-9.765 24-21.753 0-11.99-10.766-21.749-24-21.749-.88 0-1.768.046-2.651.136V1.119c0-.452-.308-.863-.761-1.038a1.353 1.353 0 0 0-1.355.251l-8.504 7.722c-.484.438-.484 1.138 0 1.583l8.5 7.739c.362.319.886.418 1.359.243.453-.177.76-.585.76-1.035v-3.899c.88-.146 1.764-.212 2.651-.212 8.384 0 15.207 6.18 15.207 13.774 0 7.593-6.825 13.778-15.207 13.778-8.382 0-15.203-6.187-15.203-13.778 0-.616-.553-1.12-1.24-1.12H1.24c-.684 0-1.241.504-1.241 1.12C0 38.235 10.774 48 24 48z" fill-rule="evenodd"/>
+    </symbol>
+    <symbol id="icon-flip" viewBox=" 0 0 48 37">
+      <g>
+        <path d="M0 29.9l19.084-11.788L0 6.325z"/>
+        <path d="M28.916 18.112L48 29.9V6.325L28.916 18.112zm15.058 4.425l-7.163-4.425 7.163-4.424v8.849z" fill-rule="nonzero"/>
+        <path d="M21.398 8.05h5.205v5.175h-5.205zM21.398 0h5.205v5.175h-5.205zM21.398 16.1h5.205v5.175h-5.205zM21.398 23.575h5.205v5.175h-5.205zM21.398 31.625h5.205V36.8h-5.205z"/>
+      </g>
+    </symbol>
+    <symbol id="icon-arrow">
+      <path d="M.5 7.401L24.428 31.33 48.357 7.4 41.569.613l-17.14 17.14L7.288.614z" fill-rule="evenodd"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+  <input type="checkbox" name="fill" id="fill" class="fill">
+  <input type="checkbox" name="logo" id="logo" class="logo">
+  <input type="checkbox" name="flip" id="flip" class="flip">
+
+  <input type="radio" name="scale" id="scale-1" class="scale-1" checked>
+  <input type="radio" name="scale" id="scale-10" class="scale-10" >
+  <input type="radio" name="scale" id="scale-100" class="scale-100">
+  <input type="radio" name="scale" id="scale-200" class="scale-200">
+
+  <input type="radio" name="rotate" id="rotate-0" class="rotate-0" checked>
+  <input type="radio" name="rotate" id="rotate-90" class="rotate-90" >
+  <input type="radio" name="rotate" id="rotate-180" class="rotate-180">
+  <input type="radio" name="rotate" id="rotate-270" class="rotate-270">
+
+  <input type="radio" name="filter" id="filter-1" class="filter-1" checked>
+  <input type="radio" name="filter" id="filter-2" class="filter-2">
+  <input type="radio" name="filter" id="filter-3" class="filter-3">
+  <input type="radio" name="filter" id="filter-4" class="filter-4">
+  <input type="radio" name="filter" id="filter-5" class="filter-5">
+  <input type="radio" name="filter" id="filter-6" class="filter-6">
+
+  <input type="radio" name="arrow_display" id="arrow_on" class="arrow_on" checked>
+  <input type="radio" name="arrow_display" id="arrow_off" class="arrow_off">
+
+  <div class="control">
+    <label for="fill">
+      <svg class="icon">
+        <use href="#icon-fill"></use>
+      </svg>
+    </label>
+    <label for="scale-1" class="icon-scale">
+      <svg class="icon">
+        <use href="#icon-scale"></use>
+      </svg>
+    </label>
+    <label for="scale-10" class="icon-scale">
+      <svg class="icon">
+        <use href="#icon-scale"></use>
+      </svg>
+    </label>
+    <label for="scale-100" class="icon-scale">
+      <svg class="icon">
+        <use href="#icon-scale"></use>
+      </svg>
+    </label>
+    <label for="scale-200" class="icon-scale">
+      <svg class="icon">
+        <use href="#icon-scale"></use>
+      </svg>
+    </label>
+    <label for="logo" class="icon-logo">
+      <svg class="icon">
+        <use href="#icon-logo"></use>
+      </svg>
+    </label>
+    <label for="rotate-0" class="icon-rotate">
+      <svg class="icon">
+        <use href="#icon-rotate"></use>
+      </svg>
+    </label>
+    <label for="rotate-90" class="icon-rotate">
+      <svg class="icon">
+        <use href="#icon-rotate"></use>
+      </svg>
+    </label>
+    <label for="rotate-180" class="icon-rotate">
+      <svg class="icon">
+        <use href="#icon-rotate"></use>
+      </svg>
+    </label>
+    <label for="rotate-270" class="icon-rotate">
+      <svg class="icon">
+        <use href="#icon-rotate"></use>
+      </svg>
+    </label>
+    <label for="flip">
+      <svg class="icon">
+        <use href="#icon-flip"></use>
+      </svg>
+    </label>
+  </div>
+  <div class="main_image">
+    <div class="image-rotate">
+      <div class="image-flip">
+        <div class="image-scale">
+          <img src="images/cat.png" alt="image" class="mutable_image">
+        </div>
+      </div>
+    </div>
+    <img src="images/cat.png" alt="catWithoutChanges" class="cleanImage">
+  </div>
+  <div class="filters">
+    <label for="arrow_on" class="arrow_left arrow__filters">
+      <svg class="icon">
+        <use href="#icon-arrow"></use>
+      </svg>
+    </label>
+    <label for="arrow_off" class="arrow_left_disable arrow__filters">
+      <svg class="icon">
+        <use href="#icon-arrow"></use>
+      </svg>
+    </label>
+    <div class="image_filter-1 image_filter__filters">
+      Без фильтра
+      <div>
+        <label for="filter-1">
+          <img src="images/cat.png" alt="image" class="filter-image image__filter-1">
+        </label>
+      </div>
+    </div>
+    <div class="image_filter-2 image_filter__filters">
+      Серый
+      <div>
+        <label for="filter-2">
+          <img src="images/cat.png" alt="image" class="filter-image image__filter-2">
+        </label>
+      </div>
+    </div>
+    <div class="image_filter-3 image_filter__filters">
+      Желтый
+      <div>
+        <label for="filter-3">
+          <img src="images/cat.png" alt="image" class="filter-image image__filter-3">
+        </label>
+      </div>
+    </div>
+    <div class="image_filter-4 image_filter__filters">
+      Синева
+      <div>
+        <label for="filter-4">
+          <img src="images/cat.png" alt="image" class="filter-image image__filter-4">
+        </label>
+      </div>
+    </div>
+    <div class="image_filter-5 image_filter__filters">
+      Контраст
+      <div>
+        <label for="filter-5">
+          <img src="images/cat.png" alt="image" class="filter-image image__filter-5">
+        </label>
+      </div>
+    </div>
+    <div class="image_filter-6 image_filter__filters">
+      Жуткий
+      <div>
+        <label for="filter-6">
+          <img src="images/cat.png" alt="image" class="filter-image image__filter-6">
+        </label>
+      </div>
+    </div>
+    <label for="arrow_on" class="arrow_right arrow__filters">
+      <svg class="icon">
+        <use href="#icon-arrow"></use>
+      </svg>
+    </label>
+    <label for="arrow_off" class="arrow_right_disable arrow__filters">
+      <svg class="icon">
+        <use href="#icon-arrow"></use>
+      </svg>
+    </label>
+  </div>
+</body>
+</html>

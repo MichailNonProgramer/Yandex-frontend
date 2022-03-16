@@ -1,0 +1,136 @@
+body {
+  margin-right: auto;
+  margin-left: auto;
+}
+.cat {
+  display: inline-block;
+
+  width: 250px;
+  margin: 15px 15px 10px 10px;
+
+  border: 1px solid #050505;
+
+  word-wrap: break-word;
+}
+
+.buttonCat {
+  display: none;
+}
+
+.buttonCatImage {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+}
+
+.buttonCat:not(:checked) ~ .buttonCatImage {
+  transform: rotate(90deg);
+
+  background: url(https://cdn.icon-icons.com/icons2/510/PNG/512/navicon-round_icon-icons.com_50087.png)
+    center / contain;
+}
+
+.buttonCat:checked ~ .buttonCatImage {
+  background: url(https://cdn.icon-icons.com/icons2/510/PNG/512/navicon-round_icon-icons.com_50087.png)
+    center / contain;
+}
+
+.cat:hover {
+  transform: scale(1.2);
+
+  box-shadow: 0 0 10px;
+  color: black;
+}
+
+.buttonCat:checked ~ .cat {
+  display: block;
+
+  width: 350px;
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.imageCat {
+  display: block;
+
+  width: 100%;
+}
+
+.imageCat:hover {
+  box-shadow: 0 0 10px;
+  color: black;
+}
+
+.catAge,
+.catDisease,
+.catBreed {
+  overflow: hidden;
+
+  margin: 0;
+
+  color: gray;
+  font-family: Calibri, serif;
+  font-size: 15px;
+}
+
+.catStatus {
+  overflow: hidden;
+
+  margin: 5px 10px 0 0;
+
+  color: gray;
+  font-family: Calibri, serif;
+  font-size: 15px;
+}
+
+.catNameWrapper {
+  overflow: hidden;
+
+  margin: 10px 0 0 15px;
+
+  font-family: Calibri, serif;
+  font-size: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.catName {
+  color: black;
+  font-weight: initial;
+  text-decoration: none;
+}
+
+.catInfo {
+  margin: 10px 0 0 16px;
+
+  font-family: Calibri, serif;
+  font-size: 15px;
+}
+
+.catDetailedInfo {
+  display: none;
+}
+
+.catDetailedInfo {
+  margin: 10px 0 20px 16px;
+}
+
+.info {
+  overflow: hidden;
+
+  color: gray;
+  font-family: Calibri, serif;
+  font-size: 15px;
+}
+
+.buttonCat:checked ~ .cat > .catInfo {
+  display: none;
+}
+
+.buttonCat:checked ~ .cat > .catDetailedInfo {
+  display: block;
+}
